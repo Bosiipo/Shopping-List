@@ -4,9 +4,8 @@
   "description": "Shopping list built with the PERN stack",
   "main": "server.js",
   "scripts": {
-    "clean": "rimraf build && mkdir build",
-    "build-babel": "babel -d ./build server.js -s",
-    "build": "npm run clean && npm run build-babel",
+    "clean": "rimraf build",
+    "build": "./node_modules/.bin/babel server.js -s --out-dir build",
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon --exec babel-node server.js",
