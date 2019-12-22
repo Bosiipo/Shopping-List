@@ -8,7 +8,7 @@ export const getItems = () => dispatch => {
   // Use dispatch to send the type and the data gotten from a request
   dispatch(setItemsLoading());
   axios
-    .get('https://polar-springs-53191.herokuapp.com/api/items')
+    .get('/api/items')
     .then(res => dispatch({ type: GET_ITEMS, payload: res.data }));
 
   // console.log(res)
@@ -16,7 +16,7 @@ export const getItems = () => dispatch => {
 
 export const addItem = item => dispatch => {
   axios
-    .post('https://polar-springs-53191.herokuapp.com/api/items', item)
+    .post('/api/items', item)
     .then(res => dispatch({ type: ADD_ITEM, payload: res.data }));
 
   // fetch('/api/items', item, {
@@ -30,7 +30,7 @@ export const addItem = item => dispatch => {
 
 export const deleteItem = id => dispatch => {
   axios
-    .delete(`https://polar-springs-53191.herokuapp.com/api/items/${id}`)
+    .delete(`/api/items/${id}`)
     .then(res => dispatch({ type: DELETE_ITEM, payload: id }));
 };
 
