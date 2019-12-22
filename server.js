@@ -39,6 +39,3 @@ db.sync()
     console.log('Database connected...');
   })
   .catch(e => console.log('error...', e));
-
-// "build-babel": "babel -d ./build server.js -s",
-// "build": "npm run clean && npm run build-babel",
