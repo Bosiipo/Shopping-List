@@ -3,7 +3,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     proxy({
-      target: 'http://localhost:5000',
+      target: 'https://polar-springs-53191.herokuapp.com/',
       changeOrigin: true
     })
   );
