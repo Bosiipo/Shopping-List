@@ -8,3 +8,4 @@ module.exports = new Sequelize(process.env.DATABASE_URL, {
 });
 
 // 'shopping_list', 'postgres', 'Milky5way$'
+// process.env.DATABASE_URL

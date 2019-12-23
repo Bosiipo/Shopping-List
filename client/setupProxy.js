@@ -3,14 +3,12 @@ module.exports = function(app) {
   app.use(
     '/api',
     proxy({
-      target: 'http://localhost:5000',
+      target: 'https://guarded-anchorage-96530.herokuapp.com',
       changeOrigin: true
     })
   );
 };
 
-// https://polar-springs-53191.herokuapp.com/
-// "homepage": "https://polar-springs-53191.herokuapp.com/",
 // http://localhost:5000
 
 // "build-babel": "babel -d ./build server.js -s",
