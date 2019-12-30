@@ -1,5 +1,6 @@
 import '@babel/polyfill';
 import express from 'express';
+// const express = require('express');
 import bodyParser from 'body-parser';
 import Sequelize from 'sequelize';
 import cors from 'cors';
@@ -11,7 +12,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 5000;
-
 
 // Routes
 import items from './routes/api/items';

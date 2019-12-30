@@ -8,16 +8,21 @@ export const getItems = () => dispatch => {
   // Use dispatch to send the type and the data gotten from a request
   dispatch(setItemsLoading());
   axios
-    .get('/api/items')
+    .get('https://guarded-anchorage-96530.herokuapp.com')
     .then(res => dispatch({ type: GET_ITEMS, payload: res.data }));
-
+    // dispatch({ type: GET_ITEMS, payload: res.data })
   // console.log(res)
+  // http://localhost:5000/api/items
 };
 
 export const addItem = item => dispatch => {
   axios
-    .post('/api/items', item)
+    .post('https://guarded-anchorage-96530.herokuapp.com', item)
     .then(res => dispatch({ type: ADD_ITEM, payload: res.data }));
+
+    // https://guarded-anchorage-96530.herokuapp.com
+    // http://localhost:5000/api/items
+
 
   // fetch('/api/items', item, {
   //   method: 'POST',

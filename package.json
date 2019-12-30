@@ -4,12 +4,12 @@
   "description": "Shopping list built with the PERN stack",
   "main": "server.js",
   "scripts": {
-    "clean": "rimraf build && mkdir build",
     "build": "./node_modules/.bin/babel server.js -s --out-dir build",
+    "clean": "rimraf build",
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
     "start": "node build/server.js",
-    "server": "nodemon --exec babel/node server.js",
+    "server": "nodemon -r esm server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
@@ -20,6 +20,7 @@
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.1",
     "cors": "^2.8.5",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "nodemon": "^2.0.2",
     "pg": "^7.14.0",
@@ -27,9 +28,15 @@
     "sequelize": "^5.21.3",
     "sequelize-cli": "^5.5.1"
   },
+  "engines": {
+    "node": "11.13.0",
+    "npm": "6.13.2"
+  },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
-    "@babel/preset-env": "^7.7.6"
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7"
   }
 }
