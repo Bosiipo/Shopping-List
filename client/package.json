@@ -20,7 +20,7 @@
     "redux-thunk": "^2.3.0",
     "uuid": "^3.3.3"
   },
-  "homepage": "https://guarded-anchorage-96530.herokuapp.com/",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

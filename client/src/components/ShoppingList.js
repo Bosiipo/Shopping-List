@@ -16,17 +16,6 @@ class ShoppingList extends Component {
 
   render() {
     const { items } = this.props.item;
-    // console.log(items);
-    // console.log(items.id);
-    // console.log(items.name);
-    // console.log(items.map({ id, name }));
-    // const { id, name } = items;
-    // console.log(id, name);
-    // items.map(({ id, name }) => {
-    //   // const { id, name } = item;
-    //   console.log(id, name);
-    // });
-    // console.log(this.props.item);
     return (
       <Container>
         <ListGroup>
