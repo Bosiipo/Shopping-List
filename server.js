@@ -1,6 +1,5 @@
 import '@babel/polyfill';
 import express from 'express';
-// const express = require('express');
 import bodyParser from 'body-parser';
 import Sequelize from 'sequelize';
 import cors from 'cors';
