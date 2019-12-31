@@ -4,7 +4,7 @@
   "description": "Shopping list built with the PERN stack",
   "main": "server.js",
   "scripts": {
-    "clean": "rimraf build",
+    "clean": "rimraf build && mkdir build",
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
     "start": "node build/server.js",
