@@ -21,6 +21,7 @@
     "uuid": "^3.3.3"
   },
   "homepage": ".",
+  "proxy": "https://guarded-anchorage-96530.herokuapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
