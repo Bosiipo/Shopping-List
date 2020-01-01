@@ -7,10 +7,9 @@
     "clean": "rimraf app && mkdir app",
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
-    "start": "node app/server.js",
+    "start": "node app/server.js && npm run build --prefix client",
     "server": "nodemon babel/node server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false ./node_modules/.bin/babel server.js -s --out-dir app && npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Bosiipo",
   "license": "MIT",
