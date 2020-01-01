@@ -4,12 +4,14 @@
   "description": "Shopping list built with the PERN stack",
   "main": "server.js",
   "scripts": {
+    "build": "./node_modules/.bin/babel server.js -s --out-dir app",
     "clean": "rimraf app && mkdir app",
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
-    "start": "node app/server.js && npm run build --prefix client",
+    "start": "node app/server.js",
     "server": "nodemon babel/node server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm run build && npm install --prefix client && npm run build --prefix client"
   },
   "author": "Bosiipo",
   "license": "MIT",
