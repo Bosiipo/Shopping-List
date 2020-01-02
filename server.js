@@ -1,9 +1,8 @@
-import '@babel/polyfill';
-import express from 'express';
-import bodyParser from 'body-parser';
-import Sequelize from 'sequelize';
-import cors from 'cors';
-import path from 'path';
+const express = require('express');
+const bodyParser = require('body-parser');
+const Sequelize = require('sequelize');
+const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 // Routes
-import items from './routes/api/items';
+const items  = require('./routes/api/items');
 
 // Use routes
 app.use('/api/items', items);
@@ -29,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Database
-import db from './config/database';
+const db = require('./config/database');
 
 // Test db
 db.sync()

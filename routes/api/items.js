@@ -1,13 +1,29 @@
-import { Router } from 'express';
-import Item from '../../models/Item';
+const express = require('express');
+const router = express.Router();
 
-const router = Router();
+// Item Model
+const Item = require('../../models/Item');
 
-// Item Controller
-import ItemController from '../../controllers/item.controller';
+router.get('/', (req, res) => {
+    const items = Item.findAll({ order: [['createdAt', 'DESC']] });
+    items.then(items => res.json(items));
+});
 
-router.get('/', ItemController.fetchAllItems);
-router.post('/', ItemController.createItem);
-router.delete('/:id', ItemController.deleteItem);
+router.post('/', (req, res) => {
+    const { name } = req.body;
+    const newItem = Item.create({ name });
+    newItem.then(item => res.json(item));
+});
 
-export default router;
+
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    Item.destroy({ where: { id } });
+    return res.json({
+    status: 'success',
+    message: 'Successfully deleted item!'
+    });
+});
+
+
+module.exports = router;

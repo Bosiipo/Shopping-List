@@ -1,5 +1,5 @@
-import db from '../config/database';
-import Sequelize from 'sequelize';
+const db = require('../config/database');
+const Sequelize = require('sequelize');
 
 const Item = db.define('item', {
   id: {
@@ -16,4 +16,4 @@ const Item = db.define('item', {
   updatedAt: Sequelize.DATEONLY
 });
 
-export default Item;
+module.exports = Item;
