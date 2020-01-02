@@ -2,7 +2,7 @@
   "name": "shopping-list",
   "version": "1.0.0",
   "description": "Shopping list built with the PERN stack",
-  "main": "server.js",
+  "main": "build/server.js",
   "scripts": {
     "build-babel": "./node_modules/.bin/babel -d ./build server.js -s",
     "build": "npm run clean && npm run build-babel",
