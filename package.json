@@ -6,7 +6,7 @@
   "scripts": {
     "build-babel": "./node_modules/.bin/babel -d ./build server.js -s",
     "build": "npm run clean && npm run build-babel",
-    "clean": "rimraf build && mkdir build",
+    "clean": "rm -rf build",
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
     "start": "npm run build && node ./build/server.js",
