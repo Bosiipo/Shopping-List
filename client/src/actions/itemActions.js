@@ -8,7 +8,7 @@ export const getItems = () => dispatch => {
   // Use dispatch to send the type and the data gotten from a request
   dispatch(setItemsLoading());
   axios
-    .get('https://guarded-anchorage-96530.herokuapp.com/api/items')
+    .get('https://stormy-woodland-60272.herokuapp.com/api/items')
     .then(res => dispatch({ type: GET_ITEMS, payload: res.data }));
     // dispatch({ type: GET_ITEMS, payload: res.data })
   // console.log(res)
@@ -17,7 +17,7 @@ export const getItems = () => dispatch => {
 
 export const addItem = item => dispatch => {
   axios
-    .post('https://guarded-anchorage-96530.herokuapp.com/api/items', item)
+    .post('https://stormy-woodland-60272.herokuapp.com/api/items', item)
     .then(res => dispatch({ type: ADD_ITEM, payload: res.data }));
 
     // https://guarded-anchorage-96530.herokuapp.com
@@ -35,7 +35,7 @@ export const addItem = item => dispatch => {
 
 export const deleteItem = id => dispatch => {
   axios
-    .delete(`https://guarded-anchorage-96530.herokuapp.com/api/items/${id}`)
+    .delete(`https://stormy-woodland-60272.herokuapp.com/api/items/${id}`)
     .then(res => dispatch({ type: DELETE_ITEM, payload: id }));
 };
 
