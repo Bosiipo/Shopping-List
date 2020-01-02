@@ -6,13 +6,13 @@
   "scripts": {
     "build-babel": "./node_modules/.bin/babel -d ./build server.js -s",
     "build": "npm run clean && npm run build-babel",
-    "clean": "rm -rf build",
+    "clean": "rm -rf build && mkdir build",
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
-    "start": "npm run build && node ./build/server.js",
+    "start": "node ./build/server.js",
     "server": "nodemon babel/node server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm run build && npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Bosiipo",
   "license": "MIT",
