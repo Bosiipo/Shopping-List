@@ -7,6 +7,6 @@ module.exports = new Sequelize(process.env.DATABASE_URL, {
   protocol: 'postgres'
 });
 
-'shopping_list', 'postgres', 'postgres'
+// 'shopping_list', 'postgres', 'postgres'
 // process.env.DATABASE_URL
 // localhost

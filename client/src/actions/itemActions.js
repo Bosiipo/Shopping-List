@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from './types';
+import { tokenConfig } from './authActions';
+import { returnErrors } from './errorActions';
 
 // The function calls here; getItems, addItem and deleteItem are to be used from the frontend!
 // Handles the data communication between the backend and the redux store for the frontend!
@@ -9,34 +11,24 @@ export const getItems = () => dispatch => {
   dispatch(setItemsLoading());
   axios
     .get('https://stormy-woodland-60272.herokuapp.com/api/items')
-    .then(res => dispatch({ type: GET_ITEMS, payload: res.data }));
-    // dispatch({ type: GET_ITEMS, payload: res.data })
-  // console.log(res)
+    .then(res => dispatch({ type: GET_ITEMS, payload: res.data }))
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
   // http://localhost:5000/api/items
 };
 
-export const addItem = item => dispatch => {
+export const addItem = item => (dispatch, getState) => {
   axios
-    .post('https://stormy-woodland-60272.herokuapp.com/api/items', item)
-    .then(res => dispatch({ type: ADD_ITEM, payload: res.data }));
+    .post('https://stormy-woodland-60272.herokuapp.com/api/items', item, tokenConfig(getState))
+    .then(res => dispatch({ type: ADD_ITEM, payload: res.data }))
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 
-    // https://guarded-anchorage-96530.herokuapp.com
-    // http://localhost:5000/api/items
-
-
-  // fetch('/api/items', item, {
-  //   method: 'POST',
-  //   body: JSON.stringify(item),
-  //   headers: 'Content-Type: application/json'
-  // })
-  //   .then(res => res.json())
-  //   .then(res => console.log(res));
 };
 
-export const deleteItem = id => dispatch => {
+export const deleteItem = id => (dispatch, getState) => {
   axios
-    .delete(`https://stormy-woodland-60272.herokuapp.com/api/items/${id}`)
-    .then(res => dispatch({ type: DELETE_ITEM, payload: id }));
+    .delete(`https://stormy-woodland-60272.herokuapp.com/api/items/${id}`, tokenConfig(getState))
+    .then(res => dispatch({ type: DELETE_ITEM, payload: id }))
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 export const setItemsLoading = () => {

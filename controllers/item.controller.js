@@ -1,4 +1,4 @@
-// import Item from '../models/Item';
+// const Item = require('../models/Item');
 
 // class ItemController {
 //   static async fetchAllItems(req, res) {
@@ -43,4 +43,4 @@
 //   }
 // }
 
-// export default ItemController;
+// module.exports = ItemController;
