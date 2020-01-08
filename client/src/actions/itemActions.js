@@ -10,7 +10,7 @@ export const getItems = () => dispatch => {
   // Use dispatch to send the type and the data gotten from a request
   dispatch(setItemsLoading());
   axios
-    .get('https://stormy-woodland-60272.herokuapp.com/api/items')
+    .get('http://localhost:5000/api/items')
     .then(res => dispatch({ type: GET_ITEMS, payload: res.data }))
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
   // http://localhost:5000/api/items
@@ -18,7 +18,7 @@ export const getItems = () => dispatch => {
 
 export const addItem = item => (dispatch, getState) => {
   axios
-    .post('https://stormy-woodland-60272.herokuapp.com/api/items', item, tokenConfig(getState))
+    .post('http://localhost:5000/api/items', item, tokenConfig(getState))
     .then(res => dispatch({ type: ADD_ITEM, payload: res.data }))
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 
@@ -26,7 +26,7 @@ export const addItem = item => (dispatch, getState) => {
 
 export const deleteItem = id => (dispatch, getState) => {
   axios
-    .delete(`https://stormy-woodland-60272.herokuapp.com/api/items/${id}`, tokenConfig(getState))
+    .delete(`http://localhost:5000/api/items/${id}`, tokenConfig(getState))
     .then(res => dispatch({ type: DELETE_ITEM, payload: id }))
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
